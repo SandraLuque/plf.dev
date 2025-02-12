@@ -1,0 +1,22 @@
+---
+interface LinkProps {
+  text: string
+  href: string
+  style?: 'primary' | 'secondary'
+  icon?: {
+    side: 'left' | 'right'
+  }
+  isFilled?: boolean
+  isTarget?: boolean
+  classes?: string
+}
+const { text, href, style, icon, isFilled = true, classes, ...rest } = Astro.props as LinkProps
+---
+
+<a href={href} class:list={['link', classes, style, { filled: isFilled }]} {...rest}>
+  {icon && icon.side === 'left' && <slot name="icon" />}
+
+  <span>{text}</span>
+
+  {icon && icon.side === 'right' && <slot name="icon" />}
+</a>

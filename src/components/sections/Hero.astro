@@ -1,0 +1,12 @@
+---
+import { getI18N } from '@i18n/index'
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<section
+  id={i18n.SECTION_HERO_ID}
+  class="relative px-9 pt-20 min-h-screen before:absolute before:bg-[url(/backgroundHero.svg)] before:-inset-1 before:bg-center before:bg-no-repeat before:h-full before:w-full before:inline-block"
+>
+</section>

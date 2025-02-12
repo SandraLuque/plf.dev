@@ -1,0 +1,125 @@
+---
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '@i18n/utils'
+import IconLogo from '@icons/sandraLogo.svg'
+import IconArrowDown from '@icons/arrowDown.svg'
+import IconArrowRight from '@icons/arrowRright.svg'
+import Link from '@components/Link.astro'
+import LanguageSelector from './LanguageSelector.astro'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
+
+const sections = [
+  { href: `${translatePath('/#inicio')}`, name: `${t('nav.home')}` },
+  { href: `${translatePath('/#acerca-de')}`, name: `${t('nav.about')}` },
+  { href: `${translatePath('/#projects')}`, name: `${t('nav.projects')}` },
+  {
+    href: `${translatePath('/#contact')}`,
+    name: `${t('nav.contact')}`,
+  },
+]
+---
+
+<header class="fixed top-0 left-0 w-full z-50 py-4 bg-transparent">
+  <div class="flex justify-between px-9">
+    <div class="flex items-center">
+      <IconLogo class="md:size-10 size-6 fill-primary" />
+      <div class="leading-[.7] text-xl font-medium -ml-2">
+        <h3>andra</h3>
+        <h3>uque</h3>
+      </div>
+    </div>
+    <div
+      class="border border-border flex items-center rounded-rounding-md py-2 px-3.5 bg-primary-gradient gap-8"
+    >
+      <nav class="flex items-center gap-2">
+        {
+          sections.map(({ href, name }) => (
+            <>
+              <Link
+                href={href}
+                text={name}
+                icon={{
+                  side: 'right',
+                }}
+                classes="pr-4"
+              >
+                <IconArrowDown slot="icon" size={16} class="navIcon" />
+              </Link>
+            </>
+          ))
+        }
+      </nav>
+      <Link
+        style=""
+        text="Resumen"
+        icon={{
+          side: 'right',
+        }}
+        target="_blank"
+      >
+        <IconArrowRight slot="icon" size={16} class="navIcon right" />
+      </Link>
+    </div>
+    <div>
+      <LanguageSelector />
+    </div>
+  </div>
+</header>
+<script>
+  import { $, $$ } from 'src/lib/dom-selector'
+
+  const header = $('header') as HTMLElement
+  const sections = $$('section')
+  const navLinks = $$('nav a')
+
+  // Función para cambiar el fondo del header al hacer scroll
+  function headerBgTransition() {
+    if (window.scrollY > 10) {
+      header.classList.add('bg-primary-gradient', 'backdrop-blur-md')
+      header.classList.remove('bg-transparent')
+    } else {
+      header.classList.add('bg-transparent')
+      header.classList.remove('bg-primary-gradient', 'backdrop-blur-md')
+    }
+  }
+  // Función para resaltar la sección activa en el menú
+  const checkSectionInView = () => {
+    let currentSection = ''
+
+    // Encontrar la sección actual en la vista
+    sections.forEach((s) => {
+      const rect = s.getBoundingClientRect()
+      const scrollMargin = 112 // scroll-mt-28 en píxeles (7rem * 16px)
+      if (rect.top <= 100 + scrollMargin && rect.bottom >= 100) {
+        currentSection = s.id
+      }
+    })
+
+    // Recorrer los enlaces del menú y resaltar el enlace activo con text-primary
+    navLinks.forEach((l) => {
+      const linkHref = l.getAttribute('href')
+      if (linkHref && linkHref.includes('/#')) {
+        const hashPart = linkHref.split('/#')[1]
+        const normalizedHref = `/#${hashPart}`
+        if (normalizedHref === `/#${currentSection}`) {
+          l.classList.add('text-primary')
+        } else {
+          l.classList.remove('text-primary')
+        }
+      }
+    })
+  }
+
+  window.addEventListener('scroll', () => {
+    checkSectionInView()
+    headerBgTransition()
+  })
+
+  // Ejecutar las funciones al cargar la página
+  window.onload = () => {
+    checkSectionInView()
+    headerBgTransition()
+  }
+</script>

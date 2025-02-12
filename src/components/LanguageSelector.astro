@@ -1,6 +1,8 @@
 ---
+import IconLanguage from '@icons/language.svg'
 import { languageList } from '@i18n/ui'
 import { getLangFromUrl, getRouteFromUrl, useTranslatedPath } from '@i18n/utils'
+import Link from './Link.astro'
 
 const route = getRouteFromUrl(Astro.url)
 const lang = getLangFromUrl(Astro.url)
@@ -12,7 +14,17 @@ const otherLocales = Object.values(languageList).filter((locale) => locale.code 
 <div class="flex gap-x-2">
   {
     otherLocales.map((locale) => (
-      <a href={translatePath(`/${route ? route : ''}`, locale.code)}>{locale.name}</a>
+      <Link
+        href={translatePath(`/${route ? route : ''}`, locale.code)}
+        style="secondary"
+        text={locale.name}
+        icon={{
+          side: 'left',
+        }}
+        isFilled={false}
+      >
+        <IconLanguage slot="icon" size={16} />
+      </Link>
     ))
   }
 </div>
