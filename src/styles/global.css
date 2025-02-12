@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-titles: 'Monaspace Radon', cursive;
+  --font-base: 'Rubik Variable', sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    font-family: var(--font-base);
+  }
+}
