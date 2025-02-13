@@ -11,6 +11,9 @@ dependencies:
   '@fontsource/monaspace-radon':
     specifier: ^5.1.0
     version: 5.1.0
+  '@midudev/tailwind-animations':
+    specifier: ^0.1.0
+    version: 0.1.0(tailwindcss@4.0.6)
   '@tailwindcss/vite':
     specifier: ^4.0.6
     version: 4.0.6(vite@6.1.0)
@@ -657,6 +660,14 @@ packages:
 
   /@jridgewell/sourcemap-codec@1.5.0:
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
+
+  /@midudev/tailwind-animations@0.1.0(tailwindcss@4.0.6):
+    resolution: {integrity: sha512-Xedqc4uNo56x8snhM5dDHvIc+hahQ2jQhciBg9PF+sET1mJJFCvzglu9vzX/KkgN1qepG4vsUcYPnxf3H7ndyw==}
+    peerDependencies:
+      tailwindcss: ^3.0.0
+    dependencies:
+      tailwindcss: 4.0.6
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}

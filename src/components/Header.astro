@@ -5,6 +5,7 @@ import IconArrowDown from '@icons/arrowDown.svg'
 import IconArrowRight from '@icons/arrowRright.svg'
 import Link from '@components/Link.astro'
 import LanguageSelector from './LanguageSelector.astro'
+import HamburgerButton from './HamburgerButton.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -21,8 +22,8 @@ const sections = [
 ]
 ---
 
-<header class="fixed top-0 left-0 w-full z-50 py-4 bg-transparent">
-  <div class="flex justify-between px-9">
+<header class="fixed top-0 left-0 w-full z-50 py-4 bg-transparent group">
+  <div class="flex justify-between px-9 relative">
     <div class="flex items-center">
       <IconLogo class="md:size-10 size-6 fill-primary" />
       <div class="leading-[.7] text-xl font-medium -ml-2">
@@ -31,9 +32,9 @@ const sections = [
       </div>
     </div>
     <div
-      class="border border-border flex items-center rounded-rounding-md py-2 px-3.5 bg-primary-gradient gap-8"
+      class="menuContent border border-border flex items-center rounded-rounding-md py-2 px-3.5 bg-primary-gradient gap-8 group-[.menuOpened]:flex-col group-[.menuOpened]:rounded-none group-[.menuOpened]:opacity-100 group-[.menuOpened]:bg-background max-lg:opacity-0 group-[.menuOpened]:p-6 group-[.menuOpened]:h-[100dvh] group-[.menuOpened]:items-start absolute lg:relative"
     >
-      <nav class="flex items-center gap-2">
+      <nav class="flex gap-2 sm:max-lg:gap-5" id="innerNavContent">
         {
           sections.map(({ href, name }) => (
             <>
@@ -58,12 +59,14 @@ const sections = [
           side: 'right',
         }}
         target="_blank"
+        classes="sm:max-lg:text-4xl"
       >
         <IconArrowRight slot="icon" size={16} class="navIcon right" />
       </Link>
     </div>
-    <div>
+    <div class="flex items-center gap-4">
       <LanguageSelector />
+      <HamburgerButton id="menuButton" size={24} />
     </div>
   </div>
 </header>
@@ -73,6 +76,18 @@ const sections = [
   const header = $('header') as HTMLElement
   const sections = $$('section')
   const navLinks = $$('nav a')
+
+  function toggleMenu(
+    navContent: HTMLElement | null,
+    headerContent: HTMLElement | null,
+    innerNavContent: HTMLElement | null
+  ) {
+    headerContent?.classList.toggle('menuOpened')
+    navContent?.classList.toggle('fixed')
+    innerNavContent?.classList.toggle('animate-bounce-fade-in')
+    document.body.classList.toggle('overflow-hidden')
+    document.body.classList.toggle('lg:overflow-auto')
+  }
 
   // Función para cambiar el fondo del header al hacer scroll
   function headerBgTransition() {
@@ -108,6 +123,9 @@ const sections = [
         } else {
           l.classList.remove('text-primary')
         }
+        if (header.classList.contains('menuOpened')) {
+          header.classList.remove('menuOpened')
+        }
       }
     })
   }
@@ -122,4 +140,15 @@ const sections = [
     checkSectionInView()
     headerBgTransition()
   }
+
+  document.addEventListener('astro:page-load', function () {
+    const menuButton = $('#menuButton')
+    const navContent = $('.menuContent')
+    const innerNavContent = $('#innerNavContent')
+    console.log(navContent)
+    menuButton?.addEventListener('hamburgerButtonClicked', () =>
+      toggleMenu(navContent, header, innerNavContent)
+    )
+    console.log('La página Astro está lista')
+  })
 </script>

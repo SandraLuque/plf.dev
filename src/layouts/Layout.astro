@@ -8,6 +8,7 @@ import '@fontsource/monaspace-radon/500.css'
 import '@fontsource-variable/rubik'
 
 import '../styles/global.css'
+import { ClientRouter } from 'astro:transitions'
 interface LayoutProps {
   title: string
   description: string
@@ -25,6 +26,7 @@ const lang = getLangFromUrl(Astro.url)
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <body class="relative">
     <Header />

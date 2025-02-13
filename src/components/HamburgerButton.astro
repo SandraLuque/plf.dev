@@ -1,0 +1,58 @@
+---
+import { MOBILE_MENU_CONTENT_ID } from '@consts/mobile-menu'
+const genericMenuLine = `h-[3px] transition ease-in-out transform duration-300 absolute w-[50%] bg-gray-300 `
+---
+
+<button
+  id={Astro.props.id}
+  aria-expanded="false"
+  aria-controls={MOBILE_MENU_CONTENT_ID}
+  class="hamburgerButton group relative flex h-[21px] w-[30px]"
+  aria-label="Abrir menú de navegación"
+>
+  <span
+    class:list={[
+      'group-[.open]:left-[3px] group-[.open]:top-[4px] group-[.open]:rotate-45 top-0 left-0 rounded-l-xs',
+      genericMenuLine,
+    ]}></span>
+  <span
+    class:list={[
+      'group-[.open]:right-[3px] group-[.open]:top-[4px] group-[.open]:-rotate-45 top-0 right-0 rounded-r-xs',
+      genericMenuLine,
+    ]}></span>
+  <span
+    class:list={[
+      'group-[.open]:opacity-0 group-[.open]:-left-[50%] top-[8px] left-0 rounded-l-xs',
+      genericMenuLine,
+    ]}></span>
+  <span
+    class:list={[
+      'group-[.open]:opacity-0 group-[.open]:left-[100%] top-[8px] right-0 rounded-r-xs',
+      genericMenuLine,
+    ]}></span>
+  <span
+    class:list={[
+      'group-[.open]:left-[3px] group-[.open]:top-[14px]  group-[.open]:-rotate-45 top-[16px] left-0 rounded-l-xs',
+      genericMenuLine,
+    ]}></span>
+  <span
+    class:list={[
+      'group-[.open]:right-[3px] group-[.open]:top-[14px] group-[.open]:rotate-45 top-[16px] right-0 rounded-r-xs',
+      genericMenuLine,
+    ]}></span>
+</button>
+
+<script>
+  import { $, $$ } from 'src/lib/dom-selector'
+
+  const hamburgerButtonClicked = 'hamburgerButtonClicked'
+  document.addEventListener('astro:page-load', () => {
+    const hamburgerButton = $('.hamburgerButton') as HTMLElement
+
+    hamburgerButton?.addEventListener('click', () => {
+      hamburgerButton.classList.toggle('open')
+      const hamburgerButtonClick = new CustomEvent(hamburgerButtonClicked)
+      hamburgerButton.dispatchEvent(hamburgerButtonClick)
+    })
+  })
+</script>
