@@ -1,0 +1,35 @@
+---
+import Link from '@components/Link.astro'
+import IconLinkedin from '@icons/linkedin.svg'
+import IconGithub from '@icons/github.svg'
+
+interface Props {
+  classes: string
+}
+const { classes } = Astro.props as Props
+---
+
+<div class:list={['flex items-center', classes]}>
+  <Link
+    href="https://www.linkedin.com/in/sandrachambiluque/"
+    text="LinkedIn"
+    target="_blank"
+    icon={{
+      side: 'left',
+    }}
+    classes="gap-1.5 primary"
+  >
+    <IconLinkedin slot="icon" size={18} />
+  </Link>
+  <Link
+    href="https://github.com/SandraLuque"
+    text="Github"
+    target="_blank"
+    icon={{
+      side: 'left',
+    }}
+    classes="gap-1.5 secondary"
+  >
+    <IconGithub slot="icon" size={18} />
+  </Link>
+</div>

@@ -3,5 +3,7 @@
   "SEO_TITLE_2": "- Creating web pages and web applications",
   "SEO_DESCRIPTION": "Discover the top content creators from Spain, Latin America, and Andorra. Vote for your favorites and celebrate the innovation and talent on Twitch, YouTube, and more.",
   "SECTION_HERO_ID": "home",
-  "SECTION_ABOUT_ID": "about"
+  "SECTION_ABOUT_ID": "about",
+  "SECTION_HERO_POSITION": "Web Developer",
+  "SECTION_HERO_POSITION_DESCRIPTION":"Currently, I am expanding my skills in web development, learning Astro and React. Previously, I have specialized in layout and interface design, focusing on visual styles and user experience. I have also collaborated in customer support, solving bugs and bugs in the application, and I have developed web pages with HTML and Sass."
 }

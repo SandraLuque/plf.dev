@@ -1,0 +1,14 @@
+---
+import { Image } from 'astro:assets'
+import AvatarImage from '@assets/avatar.webp'
+---
+
+<div class="group relative size-56 lg:size-70">
+  <Image
+    src={AvatarImage}
+    alt="Avatar"
+    width={342}
+    height={342}
+    class="w-full h-auto object-contain aspect-square filter drop-shadow-[0px_-5px_7px_rgba(76,37,178,0.5)] transition-all duration-300 group-hover:drop-shadow-[5px_-7px_8px_rgba(91,45,212,0.5),_-5px_-10px_8px_rgba(127,100,242,0.5)]"
+  />
+</div>

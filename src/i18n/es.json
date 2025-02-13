@@ -3,6 +3,8 @@
   "SEO_TITLE_2": "- Creando paginas y aplicaciones web",
   "SEO_DESCRIPTION": "Descubre a los mejores creadores de contenido de España, Latinoamérica y Andorra. ¡Vota por tus favoritos! Celebra la innovación y el talento de Twitch, YouTube y más",
   "SECTION_HERO_ID": "inicio",
-  "SECTION_ABOUT_ID": "acerca-de"
+  "SECTION_ABOUT_ID": "acerca-de",
+  "SECTION_HERO_POSITION": "Desarrollador web",
+  "SECTION_HERO_POSITION_DESCRIPTION": "Actualmente, estoy ampliando mis habilidades en desarrollo web, aprendiendo Astro y React. Anteriormente, me he especializado en la maquetación y diseño de interfaces, enfocándome en los estilos visuales y la experiencia del usuario. También he colaborado en soporte al cliente, resolviendo bugs y fallos en la aplicación, y he desarrollado páginas web con HTML y Sass."
   
 }

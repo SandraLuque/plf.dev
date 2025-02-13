@@ -1,4 +1,7 @@
 ---
+import Avatar from '@components/Avatar.astro'
+import SocialButtons from '@components/SocialButtons.astro'
+import BackgroundHero from '@assets/backgroundHero.svg'
 import { getI18N } from '@i18n/index'
 
 const { currentLocale } = Astro
@@ -7,6 +10,26 @@ const i18n = getI18N({ currentLocale })
 
 <section
   id={i18n.SECTION_HERO_ID}
-  class="relative px-9 pt-20 min-h-screen before:absolute before:bg-[url(/backgroundHero.svg)] before:-inset-1 before:bg-center before:bg-no-repeat before:h-full before:w-full before:inline-block"
+  class="relative grid px-4 lg:px-9 pt-20 min-h-screen place-items-center"
 >
+  <div
+    class="bg-[radial-gradient(circle_at_50%_50%,_rgb(27,_27,_47),_rgb(15,_15,_31)_45%,_rgb(0,_0,_0)_100%)] absolute w-full h-full inset-0 z-auto pointer-events-none"
+  >
+  </div>
+  <BackgroundHero class="absolute inset-0 w-full h-full object-cover hidden md:block" />
+  <div class="grid place-items-center gap-4 lg:w-dvh text-center">
+    <Avatar />
+    <div class="z-10 grid gap-5">
+      <h1
+        set:html={i18n.SECTION_HERO_POSITION}
+        data-text={i18n.SECTION_HERO_POSITION}
+        class="lg:text-7xl text-4xl md:text-6xl font-titles uppercase -mt-12 lg:-mt-16 glowtext"
+      />
+      <p
+        set:html={i18n.SECTION_HERO_POSITION_DESCRIPTION}
+        class="prose-lg prose text-white max-w-none"
+      />
+    </div>
+    <SocialButtons classes="gap-8 mt-4" />
+  </div>
 </section>

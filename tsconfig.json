@@ -9,7 +9,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@i18n/*": ["src/i18n/*"],
       "@icons/*": ["src/icons/*"],
-      "@consts/*": ["src/consts/*"]
+      "@consts/*": ["src/consts/*"],
+      "@assets/*": ["src/assets/*"]
     
     }
   }
