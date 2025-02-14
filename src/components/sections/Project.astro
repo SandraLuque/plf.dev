@@ -1,0 +1,146 @@
+---
+import { Image } from 'astro:assets'
+import ProjectImageEnvoice from '@assets/projects/facturacion.webp'
+import ProjectImageStore from '@assets/projects/tienda.webp'
+import ProjectImageTaxi from '@assets/projects/taxi.webp'
+import ProjectIconOne from '@icons/externalLink.svg'
+import ProjectIconLinkOff from '@icons/externalLinkOff.svg'
+import { getI18N } from '@i18n/index'
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+const projects = [
+  {
+    color: 'border-blue-py',
+    pulse: 'group-hover:animate-pb',
+    href: 'https://global.akar.pe/app/login',
+    title: `${i18n.SECTION_PROJECT_1_TITLE}`,
+    description: `${i18n.SECTION_PROJECT_1_DESCRIPTION}`,
+    date: `${i18n.SECTION_PROJECT_1_DATE}`,
+    item1right: `${i18n.SECTION_PROJECT_1_ITEM_1_RIGHT}`,
+    item2right: `${i18n.SECTION_PROJECT_1_ITEM_2_RIGHT}`,
+    item3right: `${i18n.SECTION_PROJECT_1_ITEM_3_RIGHT}`,
+    item4right: `${i18n.SECTION_PROJECT_1_ITEM_4_RIGHT}`,
+  },
+  {
+    color: 'border-orange-py',
+    pulse: 'group-hover:animate-por',
+    href: '',
+    title: `${i18n.SECTION_PROJECT_2_TITLE}`,
+    description: `${i18n.SECTION_PROJECT_2_DESCRIPTION}`,
+    date: `${i18n.SECTION_PROJECT_2_DATE}`,
+    item1right: `${i18n.SECTION_PROJECT_2_ITEM_1_RIGHT}`,
+    item2right: `${i18n.SECTION_PROJECT_2_ITEM_2_RIGHT}`,
+    item3right: `${i18n.SECTION_PROJECT_2_ITEM_3_RIGHT}`,
+    item4right: `${i18n.SECTION_PROJECT_2_ITEM_4_RIGHT}`,
+  },
+  {
+    color: 'border-yellow-py',
+    pulse: 'group-hover:animate-pyw',
+    href: '',
+    title: `${i18n.SECTION_PROJECT_3_TITLE}`,
+    description: `${i18n.SECTION_PROJECT_3_DESCRIPTION}`,
+    date: `${i18n.SECTION_PROJECT_3_DATE}`,
+    item1right: `${i18n.SECTION_PROJECT_3_ITEM_1_RIGHT}`,
+    item2right: `${i18n.SECTION_PROJECT_3_ITEM_2_RIGHT}`,
+    item3right: `${i18n.SECTION_PROJECT_3_ITEM_3_RIGHT}`,
+    item4right: `${i18n.SECTION_PROJECT_3_ITEM_4_RIGHT}`,
+  },
+]
+---
+
+<section id={i18n.SECTION_PROJECT_ID} class="scroll-mt-28">
+  <div class="flex flex-col px-4 lg:md-0 mx-auto container py-24 w-full">
+    <div class="flex w-full flex-col gap-3 lg:h-100.5 lg:flex-row">
+      <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8">
+        <h2
+          class="lg:text-8xl text-4xl uppercase font-medium max-w-lg"
+          set:html={i18n.SECTION_PROJECT_TITLE}
+        />
+      </div>
+      <div class="flex h-66 flex-col gap-3.5 lg:h-auto lg:w-1/2 xl:w-3/8">
+        <p set:html={i18n.SECTION_PROJECT_SUBTITLE_1} class="text-4xl lg:text-5xl" />
+        <p set:html={i18n.SECTION_PROJECT_SUBTITLE_2} class="text-2xl lg:text-3xl" />
+      </div>
+    </div>
+
+    <div class="grid gap-9">
+      {
+        projects.map((p, index) => (
+          <>
+            <div class="grid w-full grid-flow-dense grid-cols-30 gap-2 px-2 pt-2 rounded-rounding-md border border-border">
+              <div class="@container isolate flex flex-col gap-2 overflow-hidden p-2 col-span-full md:col-span-15">
+                <div class="relative h-full group">
+                  <div class="absolute w-full h-[90%] top-auto bottom-0 left-auto right-0">
+                    <div class="z-10 flex justify-center items-center absolute transform left-1/2 -translate-y-1/2  ">
+                      <a
+                        href={p.href}
+                        target="_blank"
+                        rel="noopener noreferrer "
+                        class:list={[
+                          'rounded-rounding-md border  px-3.5 py-2 bg-background',
+                          p.pulse,
+                          p.color,
+                        ]}
+                      >
+                        {index === 0 ? (
+                          <ProjectIconOne size={30} />
+                        ) : (
+                          <ProjectIconLinkOff size={30} />
+                        )}
+                      </a>
+                    </div>
+                    <div
+                      class:list={[
+                        "relative h-[110%] rounded-rounding-md borderoverflow-hidden p-4 border overflow-hidden after-content-[' '] after:absolute after:w-full after:h-5 after:top-0 after:left-0 after:right-0 after:bg-background",
+                        p.color,
+                      ]}
+                    >
+                      <div class="transform  translate-y-0 group-hover:translate-y-[-84.4%] ease-in-out duration-15000">
+                        {index === 0 ? (
+                          <Image src={ProjectImageEnvoice} alt="Avatar" />
+                        ) : index === 1 ? (
+                          <Image src={ProjectImageStore} alt="Avatar" />
+                        ) : (
+                          <Image src={ProjectImageTaxi} alt="Avatar" />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="@container isolate flex flex-col gap-2 overflow-hidden p-2 col-span-full md:col-span-15">
+                <div>
+                  <span
+                    set:html={p.title}
+                    class="text-xl/10 font-medium text-gray-950 @md:text-2xl/10 dark:text-white"
+                  />
+                </div>
+                <div class="mt-4">
+                  <p class="py-3 border-b border-border grid grid-cols-[0.5fr_1fr]">
+                    <span set:html={i18n.SECTION_PROJECT_ITEM_1_LEFT} />
+                    <span set:html={p.item1right} class="text-right" />
+                  </p>
+                  <p class="py-3 border-b border-border grid grid-cols-[0.5fr_1fr]">
+                    <span set:html={i18n.SECTION_PROJECT_ITEM_2_LEFT} />
+                    <span set:html={p.item2right} class="text-right" />
+                  </p>
+                  <p class="py-3 border-b border-border grid grid-cols-[0.5fr_1fr]">
+                    <span set:html={i18n.SECTION_PROJECT_ITEM_3_LEFT} />
+                    <span set:html={p.item3right} class="text-right" />
+                  </p>
+                  <p class="py-3 border-b border-border grid grid-cols-[0.5fr_1fr]">
+                    <span set:html={i18n.SECTION_PROJECT_ITEM_4_LEFT} />
+                    <span set:html={p.item4right} class="text-right" />
+                  </p>
+                  <p set:html={p.description} class="py-3" />
+                </div>
+                <p set:html={p.date} class="py-6 text-muted/10 text-3xl font-medium" />
+              </div>
+            </div>
+          </>
+        ))
+      }
+    </div>
+  </div>
+</section>

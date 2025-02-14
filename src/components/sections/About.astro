@@ -6,95 +6,18 @@ const i18n = getI18N({ currentLocale })
 ---
 
 <section id={i18n.SECTION_ABOUT_ID} class="scroll-mt-28">
-  <div>
-    <p class="prose">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
-  </div>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, pariatur! Dolore
-      repellendus enim ullam a, recusandae laudantium doloribus velit placeat facilis repellat!
-      Blanditiis, unde incidunt ex ad nam natus temporibus.
-    </p>
+  <div class="flex flex-col px-4 lg:md-0 mx-auto container py-24 w-full">
+    <div class="flex w-full flex-col gap-3 lg:h-100.5 lg:flex-row">
+      <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8">
+        <h2
+          class="lg:text-8xl text-4xl uppercase font-medium max-w-lg"
+          set:html={i18n.SECTION_PROJECT_TITLE}
+        />
+      </div>
+      <div class="flex h-66 flex-col gap-3.5 lg:h-auto lg:w-1/2 xl:w-3/8">
+        <p set:html={i18n.SECTION_PROJECT_SUBTITLE_1} class="text-4xl lg:text-5xl" />
+        <p set:html={i18n.SECTION_PROJECT_SUBTITLE_2} class="text-2xl lg:text-3xl" />
+      </div>
+    </div>
   </div>
 </section>

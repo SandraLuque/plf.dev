@@ -10,21 +10,28 @@ const i18n = getI18N({ currentLocale })
 
 <section
   id={i18n.SECTION_HERO_ID}
-  class="relative grid px-4 lg:px-9 pt-20 min-h-screen place-items-center"
+  class="relative grid px-4 lg:px-9 pt-20 min-h-screen place-items-center py-12"
 >
   <div
     class="bg-[radial-gradient(circle_at_50%_50%,_rgb(27,_27,_47),_rgb(15,_15,_31)_45%,_rgb(0,_0,_0)_100%)] absolute w-full h-full inset-0 z-auto pointer-events-none"
   >
   </div>
   <BackgroundHero class="absolute inset-0 w-full h-full object-cover hidden md:block" />
-  <div class="grid place-items-center gap-4 lg:w-dvh text-center">
+  <div class="grid place-items-center gap-4 w-5/6 2xl:w-dvh text-center">
     <Avatar />
     <div class="z-10 grid gap-5">
-      <h1
-        set:html={i18n.SECTION_HERO_POSITION}
-        data-text={i18n.SECTION_HERO_POSITION}
-        class="lg:text-7xl text-4xl md:text-6xl font-titles uppercase -mt-12 lg:-mt-16 glowtext"
-      />
+      <h1 class="uppercase -mt-12 lg:-mt-24">
+        <span
+          set:html={i18n.SECTION_HERO_POSITION_1}
+          class="font-semibold lg:text-8xl text-4xl md:text-7xl"
+        />
+        <p
+          set:html={i18n.SECTION_HERO_POSITION_2}
+          data-text={i18n.SECTION_HERO_POSITION_2}
+          class="font-titles glowtext lg:text-7xl text-4xl md:text-6xl mt-3"
+        />
+      </h1>
+
       <p
         set:html={i18n.SECTION_HERO_POSITION_DESCRIPTION}
         class="prose-lg prose text-white max-w-none"

@@ -23,12 +23,43 @@
   --color-primary: #7f64f2;
   --color-border: hsla(0, 0%, 100%, 0.06);
   --color-background: var(--grey-900);
-
+  --color-muted: #8a939e;
+  --color-blue-py: rgba(53, 169, 253, 0.5);
+  --color-yellow-py: rgba(214, 214, 9, 0.5);
+  --color-orange-py: rgba(250, 163, 82, 0.5);
   --animate-orbit: orbit 3s ease-in-out infinite alternate;
+  --animate-pb: pulse-blue 1s infinite ease-in-out;
+  --animate-por: pulse-orange 1s infinite ease-in-out;
+  --animate-pyw: pulse-yellow 1s infinite ease-in-out;
 
   @keyframes orbit {
     100% {
       transform: translateY(0.9rem);
+    }
+  }
+
+  @keyframes pulse-blue {
+    0% {
+      box-shadow: 0 0 0 0px rgba(20, 110, 245, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 20px rgba(20, 110, 245, 0);
+    }
+  }
+  @keyframes pulse-orange {
+    0% {
+      box-shadow: 0 0 0 0px rgba(255, 107, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 20px rgba(255, 107, 0, 0);
+    }
+  }
+  @keyframes pulse-yellow {
+    0% {
+      box-shadow: 0 0 0 0px rgba(255, 174, 19, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 20px rgba(255, 174, 19, 0);
     }
   }
 }
@@ -154,7 +185,7 @@
       rgba(12, 13, 15, 0.9) 75.88%
     );
   }
-  .mask-image {
+  .mask {
     mask-image: linear-gradient(#000 50%, transparent);
   }
   .neon {
