@@ -1,22 +1,152 @@
 ---
 import { getI18N } from '@i18n/index'
+import IconAstro from '@icons/astro.svg'
+import IconReact from '@icons/reactjs.svg'
+import IconTailwind from '@icons/tailwindcss.svg'
+import IconMaterialUi from '@icons/materialui.svg'
+import IconSass from '@icons/sass.svg'
+import IconAnalytics from '@icons/analytics.svg'
 
 const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
+
+const services = [
+  {
+    title: `${i18n.SECTION_ABOUT_MAKE_SUBTITLE_1}`,
+    decription: `${i18n.SECTION_ABOUT_MAKE_SUBTITLE_1_DESCRIPTION}`,
+    tools: `${i18n.SECTION_ABOUT_MAKE_TOOLS_1}`,
+    color: 'border-blue-py',
+  },
+  {
+    title: `${i18n.SECTION_ABOUT_MAKE_SUBTITLE_2}`,
+    decription: `${i18n.SECTION_ABOUT_MAKE_SUBTITLE_2_DESCRIPTION}`,
+    tools: `${i18n.SECTION_ABOUT_MAKE_TOOLS_2}`,
+    color: 'border-green-py',
+  },
+  {
+    title: `${i18n.SECTION_ABOUT_MAKE_SUBTITLE_3}`,
+    decription: `${i18n.SECTION_ABOUT_MAKE_SUBTITLE_3_DESCRIPTION}`,
+    tools: `${i18n.SECTION_ABOUT_MAKE_TOOLS_3}`,
+    color: 'border-purple-py',
+  },
+]
+
+const work = [
+  {
+    date: `${i18n.SECTION_ABOUT_WORK_ITEM_1}`,
+    title: `${i18n.SECTION_ABOUT_WORK_ITEM_DESCRIPTION_1}`,
+    description: `${i18n.SECTION_ABOUT_WORK_ITEM_TITLE_1}`,
+  },
+  {
+    date: `${i18n.SECTION_ABOUT_WORK_ITEM_2}`,
+    title: `${i18n.SECTION_ABOUT_WORK_ITEM_DESCRIPTION_2}`,
+    description: `${i18n.SECTION_ABOUT_WORK_ITEM_TITLE_2}`,
+  },
+]
 ---
 
-<section id={i18n.SECTION_ABOUT_ID} class="scroll-mt-28">
-  <div class="flex flex-col px-4 lg:md-0 mx-auto container py-24 w-full">
+<section id={i18n.SECTION_ABOUT_ID} class="scroll-mt-28 px-4">
+  <div class="flex flex-col lg:md-0 mx-auto container py-24 w-full">
     <div class="flex w-full flex-col gap-3 lg:h-100.5 lg:flex-row">
       <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8">
         <h2
           class="lg:text-8xl text-4xl uppercase font-medium max-w-lg"
-          set:html={i18n.SECTION_PROJECT_TITLE}
+          set:html={i18n.SECTION_ABOUT_TITLE}
         />
       </div>
       <div class="flex h-66 flex-col gap-3.5 lg:h-auto lg:w-1/2 xl:w-3/8">
-        <p set:html={i18n.SECTION_PROJECT_SUBTITLE_1} class="text-4xl lg:text-5xl" />
-        <p set:html={i18n.SECTION_PROJECT_SUBTITLE_2} class="text-2xl lg:text-3xl" />
+        <p set:html={i18n.SECTION_ABOUT_SUBTITLE_1} class="text-4xl lg:text-5xl" />
+        <p set:html={i18n.SECTION_ABOUT_SUBTITLE_2} class="text-md lg:text-lg" />
+        <p set:html={i18n.SECTION_ABOUT_SUBTITLE_3} class="text-md lg:text-lg" />
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-[1200px] w-full mt-12 md:mt-10 lg:mt-0 grid gap-16">
+    <div>
+      <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8 mb-9">
+        <h3
+          class="lg:text-6xl text-4xl uppercase font-medium max-w-lg"
+          set:html={i18n.SECTION_ABOUT_MAKE_TITLE}
+        />
+        <p set:html={i18n.SECTION_ABOUT_MAKE_DESCRIPTION} class="text-md lg:text-lg" />
+      </div>
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-6">
+        {
+          services.map((s, index) => (
+            <>
+              <div
+                class:list={[
+                  'rounded-rounding-md border  px-3.5 py-2 overflow-hidden flex flex-col items-center relative h-[26rem]',
+
+                  s.color,
+                ]}
+              >
+                <div
+                  class:list={[
+                    "feature-card_service absolute flex rounded-2xl  blur-[5rem] overflow-hidden h-full w-full before:absolute before:content-[' ']",
+                    `feature-card_service_${index}`,
+                  ]}
+                />
+                <div class="relative grid h-[70%] items-center">
+                  <div class="grid items-center gap-4">
+                    <div class="flex items-center gap-4 justify-center">
+                      {index === 0 ? (
+                        <>
+                          <IconAstro class:list={['size-14 border rounded-lg p-2', s.color]} />
+                          <IconReact class:list={['size-14 border rounded-lg p-2', s.color]} />
+                        </>
+                      ) : index === 1 ? (
+                        <>
+                          <IconTailwind class:list={['size-14 border rounded-lg p-2', s.color]} />
+                          <IconMaterialUi class:list={['size-14 border rounded-lg p-2', s.color]} />
+                          <IconSass class:list={['size-14 border rounded-lg p-2', s.color]} />
+                        </>
+                      ) : (
+                        <IconAnalytics class:list={['size-14 border rounded-lg p-2', s.color]} />
+                      )}
+                    </div>
+                    <span
+                      set:html={s.title}
+                      data-text={s.title}
+                      class="text-3xl lg:text-4xl font-header text-center mt-4 glowtext"
+                    />
+                  </div>
+                </div>
+                <div class="absolute bottom-0  w-full leading-tight flex-grow   ">
+                  <p set:html={s.decription} class=" lg:px-8 pb-4" />
+                  <div class="border-t border-border px-3 lg:px-8 py-4">
+                    <span class="text-muted text-sm " set:html={s.tools} />
+                  </div>
+                </div>
+              </div>
+            </>
+          ))
+        }
+      </div>
+    </div>
+    <div>
+      <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8 mb-9">
+        <h3
+          class="lg:text-6xl text-4xl uppercase font-medium max-w-lg"
+          set:html={i18n.SECTION_ABOUT_WORK_TITLE}
+        />
+      </div>
+      <div class="border-s-2 border-purple-py md:ml-20" dir="ltr">
+        {
+          work.map((w) => (
+            <div class="grid grid-cols-[200px_minmax(900px,_1fr)_100px] relative before:absolute before:blockbe before:bg-purple-py before:content[' '] before:h-2.5 before:w-2.5 before:rounded-full before:-left-1.5 before:top-1.5 pl-6">
+              <div set:html={w.date} class="font-medium" />
+              <div class="mb-16">
+                <span
+                  class="py-1 px-2 bg-grey-600 rounded-sm tracking-[2px] whitespace-nowrap "
+                  set:html={w.title}
+                />
+                <p set:html={w.description} />
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>

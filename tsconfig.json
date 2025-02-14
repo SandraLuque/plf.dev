@@ -11,7 +11,6 @@
       "@icons/*": ["src/icons/*"],
       "@consts/*": ["src/consts/*"],
       "@assets/*": ["src/assets/*"]
-    
     }
   }
 }

@@ -27,6 +27,9 @@
   --color-blue-py: rgba(53, 169, 253, 0.5);
   --color-yellow-py: rgba(214, 214, 9, 0.5);
   --color-orange-py: rgba(250, 163, 82, 0.5);
+  --color-green-py: rgba(9, 214, 156, 0.5);
+  --color-purple-py: rgba(178, 117, 240, 0.5);
+  --color-pink-py: rgba(214, 9, 129, 0.5);
   --animate-orbit: orbit 3s ease-in-out infinite alternate;
   --animate-pb: pulse-blue 1s infinite ease-in-out;
   --animate-por: pulse-orange 1s infinite ease-in-out;
@@ -171,6 +174,26 @@
       drop-shadow(-5px -5px 15px rgba(70, 55, 209, 0.068))
       drop-shadow(-5px 5px 15px rgba(127, 100, 242, 0)) drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
   }
+  .feature-card_service {
+    --service-color-strong: transparent;
+    &:before {
+      height: 20rem;
+      top: -13rem;
+      aspect-ratio: 1 / 1;
+      border-radius: 9999px;
+      opacity: 0.4;
+      background: rgb(var(--service-color-strong));
+    }
+  }
+  .feature-card_service_0 {
+    --service-color-strong: 0 149 255;
+  }
+  .feature-card_service_1 {
+    --service-color-strong: 0 255 186;
+  }
+  .feature-card_service_2 {
+    --service-color-strong: 128 0 255;
+  }
 }
 
 @layer utilities {
@@ -184,6 +207,9 @@
       rgba(17, 18, 20, 0.75) 4.87%,
       rgba(12, 13, 15, 0.9) 75.88%
     );
+  }
+  .masl-radial {
+    mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
   }
   .mask {
     mask-image: linear-gradient(#000 50%, transparent);
