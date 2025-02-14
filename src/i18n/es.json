@@ -5,6 +5,7 @@
   "SECTION_HERO_ID": "inicio",
   "SECTION_PROJECT_ID": "proyectos",
   "SECTION_ABOUT_ID": "acerca-de",
+  "SECTION_CONTACT_ID": "contacto",
   "SECTION_HERO_POSITION": "Desarrollador web",
   "SECTION_HERO_POSITION_1": "Desarrollador",
   "SECTION_HERO_POSITION_2": "Front end",
@@ -68,5 +69,10 @@
   "SECTION_ABOUT_WORK_ITEM_DESCRIPTION_1": "También he adquirido conocimientos valiosos al trabajar en diferentes proyectos personales.",
   "SECTION_ABOUT_WORK_ITEM_2": "Septiembre 2022",
   "SECTION_ABOUT_WORK_ITEM_TITLE_2": "Diseñador UI y desarrollador front-end − Puridiom-pe Arequipa",
-  "SECTION_ABOUT_WORK_ITEM_DESCRIPTION_2": "Tengo casi cuatro años de experiencia trabajando en Puridiom-pe como diseñador de UI y desarrollador front-end."
+  "SECTION_ABOUT_WORK_ITEM_DESCRIPTION_2": "Tengo casi cuatro años de experiencia trabajando en Puridiom-pe como diseñador de UI y desarrollador front-end.",
+
+  "SECTION_CONTACT_TITLE": "Contacto",
+  "SECTION_CONTACT_SUBTITLE_1": "¡Hagamos algo increíble juntos!",
+  "SECTION_CONTACT_SUBTITLE_2": "Estoy buscando activamente un puesto de tiempo completo como desarrollador front-end. No dudes en saludarme o escribirme, ¡me encantaría saber de ti!"
+
 }

@@ -5,6 +5,7 @@
   "SECTION_HERO_ID": "home",
   "SECTION_PROJECT_ID": "projects",
   "SECTION_ABOUT_ID": "about",
+  "SECTION_CONTACT_ID": "contact",
   "SECTION_HERO_POSITION_1": "Front end",
   "SECTION_HERO_POSITION_2": "Developer",
   "SECTION_HERO_POSITION_DESCRIPTION": "Currently, I am expanding my skills in web development, learning Astro and React. Previously, I have specialized in layout and interface design, focusing on visual styles and user experience. I have also collaborated in customer support, solving bugs and bugs in the application, and I have developed web pages with HTML and Sass.",
@@ -66,5 +67,9 @@
   "SECTION_ABOUT_WORK_ITEM_DESCRIPTION_1": "I have also gained valuable knowledge by working on differentpersonal projects",
   "SECTION_ABOUT_WORK_ITEM_2": "September 2022",
   "SECTION_ABOUT_WORK_ITEM_TITLE_2": "UI designer andfront-end developer − Puridiom-pe Arequipa",
-  "SECTION_ABOUT_WORK_ITEM_DESCRIPTION_2": "I have nearly four years of experience working at Puridiom-pe as a UI designer andfront-end developer."
+  "SECTION_ABOUT_WORK_ITEM_DESCRIPTION_2": "I have nearly four years of experience working at Puridiom-pe as a UI designer andfront-end developer.",
+
+  "SECTION_CONTACT_TITLE": "Contact",
+  "SECTION_CONTACT_SUBTITLE_1": "Let's make something awesome together!",
+  "SECTION_CONTACT_SUBTITLE_2": "I'm actively looking for a full-time position as a front-end developer. Feel free to say hi or drop a line, I'd love to hear from you!"
 }

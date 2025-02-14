@@ -71,7 +71,7 @@ const work = [
         />
         <p set:html={i18n.SECTION_ABOUT_MAKE_DESCRIPTION} class="text-md lg:text-lg" />
       </div>
-      <div class="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-6">
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-6 max-w-[1200px]">
         {
           services.map((s, index) => (
             <>
@@ -125,23 +125,20 @@ const work = [
         }
       </div>
     </div>
-    <div>
+    <div class="">
       <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8 mb-9">
         <h3
           class="lg:text-6xl text-4xl uppercase font-medium max-w-lg"
           set:html={i18n.SECTION_ABOUT_WORK_TITLE}
         />
       </div>
-      <div class="border-s-2 border-purple-py md:ml-20" dir="ltr">
+      <div class="border-s-2 border-purple-py" dir="ltr">
         {
           work.map((w) => (
-            <div class="grid grid-cols-[200px_minmax(900px,_1fr)_100px] relative before:absolute before:blockbe before:bg-purple-py before:content[' '] before:h-2.5 before:w-2.5 before:rounded-full before:-left-1.5 before:top-1.5 pl-6">
+            <div class="grid grid-cols-[_minmax(900px,_1fr)] relative before:absolute before:blockbe before:bg-purple-py before:content[' '] before:h-2.5 before:w-2.5 before:rounded-full before:-left-1.5 before:top-1.5 pl-6">
               <div set:html={w.date} class="font-medium" />
               <div class="mb-16">
-                <span
-                  class="py-1 px-2 bg-grey-600 rounded-sm tracking-[2px] whitespace-nowrap "
-                  set:html={w.title}
-                />
+                <span class="py-1 px-2 bg-grey-600 " set:html={w.title} />
                 <p set:html={w.description} />
               </div>
             </div>
