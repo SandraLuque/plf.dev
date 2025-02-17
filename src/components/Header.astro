@@ -147,7 +147,7 @@ const sections = [
 
   // Ejecutar las funciones al cargar la página
 
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     checkSectionInView()
     headerBgTransition()
   })
