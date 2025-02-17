@@ -147,8 +147,8 @@ const sections = [
 
   // Ejecutar las funciones al cargar la página
 
-  document.addEventListener('DOMContentLoaded', () => {
+  window.onload = () => {
     checkSectionInView()
     headerBgTransition()
-  })
+  }
 </script>
