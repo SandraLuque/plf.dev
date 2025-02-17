@@ -199,7 +199,8 @@
 @layer utilities {
   .wrapper {
     position: relative;
-    @apply px-9;
+    padding-inline: 2.25rem;
+    @apply px-4 lg:px-9;
   }
   .bg-primary-gradient {
     background-color: linear-gradient(

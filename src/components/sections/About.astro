@@ -6,6 +6,7 @@ import IconTailwind from '@icons/tailwindcss.svg'
 import IconMaterialUi from '@icons/materialui.svg'
 import IconSass from '@icons/sass.svg'
 import IconAnalytics from '@icons/analytics.svg'
+import Title from './Title.astro'
 
 const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
@@ -45,106 +46,89 @@ const work = [
 ]
 ---
 
-<section id={i18n.SECTION_ABOUT_ID} class="scroll-mt-28 px-4">
-  <div class="flex flex-col lg:md-0 mx-auto container py-24 w-full">
-    <div class="flex w-full flex-col gap-3 lg:h-100.5 lg:flex-row">
-      <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8">
-        <h2
-          class="lg:text-8xl text-4xl uppercase font-medium max-w-lg"
-          set:html={i18n.SECTION_ABOUT_TITLE}
-        />
-      </div>
-      <div class="flex h-66 flex-col gap-3.5 lg:h-auto lg:w-1/2 xl:w-3/8">
-        <p set:html={i18n.SECTION_ABOUT_SUBTITLE_1} class="text-4xl lg:text-5xl" />
-        <p set:html={i18n.SECTION_ABOUT_SUBTITLE_2} class="text-md lg:text-lg" />
-        <p set:html={i18n.SECTION_ABOUT_SUBTITLE_3} class="text-md lg:text-lg" />
-      </div>
-    </div>
+<div class="py-24 w-full wrapper">
+  <Title classes="lg:pb-20 pb-10">
+    <h2
+      class="lg:text-8xl text-4xl uppercase font-medium max-w-lg"
+      set:html={i18n.SECTION_ABOUT_TITLE}
+      slot="title"
+    />
+    <p set:html={i18n.SECTION_ABOUT_SUBTITLE_1} class="text-4xl lg:text-5xl" slot="subtitle" />
+    <p set:html={i18n.SECTION_ABOUT_SUBTITLE_2} class="text-md lg:text-lg" slot="subtitle" />
+    <p set:html={i18n.SECTION_ABOUT_SUBTITLE_3} class="text-md lg:text-lg" slot="subtitle" />
+  </Title>
+  <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8 mb-9">
+    <h3
+      class="lg:text-6xl text-4xl uppercase font-medium max-w-lg"
+      set:html={i18n.SECTION_ABOUT_MAKE_TITLE}
+    />
+    <p set:html={i18n.SECTION_ABOUT_MAKE_DESCRIPTION} class="text-md lg:text-lg" />
   </div>
-
-  <div class="mx-auto max-w-[1200px] w-full mt-12 md:mt-10 lg:mt-0 grid gap-16">
-    <div>
-      <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8 mb-9">
-        <h3
-          class="lg:text-6xl text-4xl uppercase font-medium max-w-lg"
-          set:html={i18n.SECTION_ABOUT_MAKE_TITLE}
-        />
-        <p set:html={i18n.SECTION_ABOUT_MAKE_DESCRIPTION} class="text-md lg:text-lg" />
-      </div>
-      <div class="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-6 max-w-[1200px]">
-        {
-          services.map((s, index) => (
-            <>
-              <div
-                class:list={[
-                  'rounded-rounding-md border  px-3.5 py-2 overflow-hidden flex flex-col items-center relative h-[26rem]',
-
-                  s.color,
-                ]}
-              >
-                <div
-                  class:list={[
-                    "feature-card_service absolute flex rounded-2xl  blur-[5rem] overflow-hidden h-full w-full before:absolute before:content-[' ']",
-                    `feature-card_service_${index}`,
-                  ]}
+  <div class="flex flex-wrap justify-center gap-x-6 gap-y-14 relative">
+    {
+      services.map((s, index) => (
+        <>
+          <div
+            class:list={[
+              'rounded-rounding-md border   overflow-hidden h-[23.5rem]  lg:h-[25rem] lg:max-w-[19rem] max-w-[17.5rem] flex flex-col justify-between',
+              s.color,
+            ]}
+          >
+            <div class="pt-10 @container max-h-[65%] items-center">
+              <div>
+                <div class="flex gap-4 justify-center ">
+                  {index === 0 ? (
+                    <>
+                      <IconAstro class:list={['size-14 border rounded-lg p-2', s.color]} />
+                      <IconReact class:list={['size-14 border rounded-lg p-2', s.color]} />
+                    </>
+                  ) : index === 1 ? (
+                    <>
+                      <IconTailwind class:list={['size-14 border rounded-lg p-2', s.color]} />
+                      <IconMaterialUi class:list={['size-14 border rounded-lg p-2', s.color]} />
+                      <IconSass class:list={['size-14 border rounded-lg p-2', s.color]} />
+                    </>
+                  ) : (
+                    <IconAnalytics class:list={['size-14 border rounded-lg p-2', s.color]} />
+                  )}
+                </div>
+                <p
+                  set:html={s.title}
+                  data-text={s.title}
+                  class="text-3xl lg:text-4xl font-header text-center mt-4 glowtext"
                 />
-                <div class="relative grid h-[70%] items-center">
-                  <div class="grid items-center gap-4">
-                    <div class="flex items-center gap-4 justify-center">
-                      {index === 0 ? (
-                        <>
-                          <IconAstro class:list={['size-14 border rounded-lg p-2', s.color]} />
-                          <IconReact class:list={['size-14 border rounded-lg p-2', s.color]} />
-                        </>
-                      ) : index === 1 ? (
-                        <>
-                          <IconTailwind class:list={['size-14 border rounded-lg p-2', s.color]} />
-                          <IconMaterialUi class:list={['size-14 border rounded-lg p-2', s.color]} />
-                          <IconSass class:list={['size-14 border rounded-lg p-2', s.color]} />
-                        </>
-                      ) : (
-                        <IconAnalytics class:list={['size-14 border rounded-lg p-2', s.color]} />
-                      )}
-                    </div>
-                    <span
-                      set:html={s.title}
-                      data-text={s.title}
-                      class="text-3xl lg:text-4xl font-header text-center mt-4 glowtext"
-                    />
-                  </div>
-                </div>
-                <div class="absolute bottom-0  w-full leading-tight flex-grow   ">
-                  <p set:html={s.decription} class=" lg:px-8 pb-4" />
-                  <div class="border-t border-border px-3 lg:px-8 py-4">
-                    <span class="text-muted text-sm " set:html={s.tools} />
-                  </div>
-                </div>
-              </div>
-            </>
-          ))
-        }
-      </div>
-    </div>
-    <div class="">
-      <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8 mb-9">
-        <h3
-          class="lg:text-6xl text-4xl uppercase font-medium max-w-lg"
-          set:html={i18n.SECTION_ABOUT_WORK_TITLE}
-        />
-      </div>
-      <div class="border-s-2 border-purple-py" dir="ltr">
-        {
-          work.map((w) => (
-            <div class="grid grid-cols-[_minmax(900px,_1fr)] relative before:absolute before:blockbe before:bg-purple-py before:content[' '] before:h-2.5 before:w-2.5 before:rounded-full before:-left-1.5 before:top-1.5 pl-6">
-              <div set:html={w.date} class="font-medium" />
-              <div class="mb-16">
-                <span class="py-1 px-2 bg-grey-600 " set:html={w.title} />
-                <p set:html={w.description} />
               </div>
             </div>
-          ))
-        }
-      </div>
+            <div class="">
+              <div class="pb-3.5 px-4">
+                <p set:html={s.decription} class=" " />
+              </div>
+              <footer class="border-t border-border px-4 py-3">
+                <span class="text-muted text-sm " set:html={s.tools} />
+              </footer>
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </div>
+  <div class="pt-20">
+    <h3
+      class="lg:text-6xl text-4xl uppercase font-medium max-w-lg lg:w-1/2 xl:w-5/8 pb-9"
+      set:html={i18n.SECTION_ABOUT_WORK_TITLE}
+    />
+    <div>
+      {
+        work.map((w) => (
+          <div class="flex flex-wrap relative before:absolute before:blockbe before:bg-purple-py before:content[' '] before:h-2.5 before:w-2.5 before:rounded-full before:-left-1.5 before:top-1.5 pl-6 after:absolute after:content[' '] after:bg-purple-py after:h-full after:w-[1px] after:-left-0.5 after:top-1.5">
+            <div set:html={w.date} class="font-medium @container w-[9rem]" />
+            <div class="mb-16">
+              <span class="bg-grey-600 " set:html={w.title} />
+              <p class="font-light text-muted" set:html={w.description} />
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
-</section>
+</div>

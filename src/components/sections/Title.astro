@@ -1,0 +1,15 @@
+---
+interface Props {
+  classes?: string
+}
+const { classes, ...rest } = Astro.props as Props
+---
+
+<div class:list={['flex w-full flex-col gap-3  lg:flex-row', classes]} {...rest}>
+  <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8">
+    <slot name="title" />
+  </div>
+  <div class="flex flex-col gap-3.5 lg:w-1/2 xl:w-3/8">
+    <slot name="subtitle" />
+  </div>
+</div>

@@ -6,6 +6,7 @@ import ProjectImageTaxi from '@assets/projects/taxi.webp'
 import ProjectIconOne from '@icons/externalLink.svg'
 import ProjectIconLinkOff from '@icons/externalLinkOff.svg'
 import { getI18N } from '@i18n/index'
+import Title from './Title.astro'
 
 const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
@@ -50,19 +51,16 @@ const projects = [
 ---
 
 <section id={i18n.SECTION_PROJECT_ID} class="scroll-mt-28">
-  <div class="flex flex-col px-4 lg:md-0 mx-auto container py-24 w-full">
-    <div class="flex w-full flex-col gap-3 lg:h-100.5 lg:flex-row">
-      <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8">
-        <h2
-          class="lg:text-8xl text-4xl uppercase font-medium max-w-lg"
-          set:html={i18n.SECTION_PROJECT_TITLE}
-        />
-      </div>
-      <div class="flex h-66 flex-col gap-3.5 lg:h-auto lg:w-1/2 xl:w-3/8">
-        <p set:html={i18n.SECTION_PROJECT_SUBTITLE_1} class="text-4xl lg:text-5xl" />
-        <p set:html={i18n.SECTION_PROJECT_SUBTITLE_2} class="text-2xl lg:text-3xl" />
-      </div>
-    </div>
+  <div class="flex flex-col lg:md-0 mx-auto container py-24 w-full wrapper">
+    <Title classes="lg:pb-20 pb-10">
+      <h2
+        class="lg:text-8xl text-4xl uppercase font-medium max-w-lg"
+        slot="title"
+        set:html={i18n.SECTION_PROJECT_TITLE}
+      />
+      <p set:html={i18n.SECTION_PROJECT_SUBTITLE_1} class="text-4xl lg:text-5xl" slot="subtitle" />
+      <p set:html={i18n.SECTION_PROJECT_SUBTITLE_2} class="text-2xl lg:text-3xl" slot="subtitle" />
+    </Title>
 
     <div class="grid gap-9">
       {

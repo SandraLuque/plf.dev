@@ -1,27 +1,28 @@
 ---
 import SocialButtons from '@components/SocialButtons.astro'
 import { getI18N } from '@i18n/index'
+import Title from './Title.astro'
 const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
 
 const currentYear = new Date().getFullYear().toString()
 ---
 
-<section id={i18n.SECTION_CONTACT_ID} class="scroll-mt-28 px-4">
-  <div class="flex flex-col lg:md-0 mx-auto container pt-24 pb-12 w-full">
-    <div class="flex w-full flex-col gap-3 lg:h-100.5 lg:flex-row">
-      <div class="flex flex-col gap-1 lg:w-1/2 xl:w-5/8">
-        <h2
-          class="lg:text-8xl text-4xl uppercase font-medium max-w-lg"
-          set:html={i18n.SECTION_CONTACT_TITLE}
-        />
-      </div>
-      <div class="flex h-66 flex-col gap-3.5 lg:h-auto lg:w-1/2 xl:w-3/8">
-        <p set:html={i18n.SECTION_CONTACT_SUBTITLE_1} class="text-4xl lg:text-5xl" />
-        <p set:html={i18n.SECTION_CONTACT_SUBTITLE_2} class="text-md lg:text-lg" />
-      </div>
-    </div>
-    <div class="flex items-center bg-muted/9 py-4 px-6 rounded-rounding-md text-xl justify-between">
+<section id={i18n.SECTION_CONTACT_ID} class="scroll-mt-28">
+  <div class="flex flex-col lg:md-0 mx-auto container pt-24 pb-12 w-full wrapper">
+    <Title classes="lg:pb-20 pb-10">
+      <h2
+        class="lg:text-8xl text-4xl uppercase font-medium max-w-lg"
+        slot="title"
+        set:html={i18n.SECTION_CONTACT_TITLE}
+      />
+      <p set:html={i18n.SECTION_CONTACT_SUBTITLE_1} class="text-4xl lg:text-5xl" slot="subtitle" />
+      <p set:html={i18n.SECTION_CONTACT_SUBTITLE_2} class="text-md lg:text-lg" slot="subtitle" />
+    </Title>
+
+    <div
+      class="flex items-center flex-wrap gap-4 bg-muted/9 py-4 px-6 rounded-rounding-md text-xl justify-between"
+    >
       <div>
         <small>© SANDRA LUQUE {currentYear}</small>
       </div>
