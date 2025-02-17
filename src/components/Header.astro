@@ -129,6 +129,16 @@ const sections = [
       }
     })
   }
+  document.addEventListener('astro:page-load', function () {
+    const menuButton = $('#menuButton')
+    const navContent = $('.menuContent')
+    const innerNavContent = $('#innerNavContent')
+
+    menuButton?.addEventListener('hamburgerButtonClicked', () =>
+      toggleMenu(navContent, header, innerNavContent)
+    )
+    console.log('La página Astro está lista')
+  })
 
   window.addEventListener('scroll', () => {
     checkSectionInView()
@@ -140,15 +150,4 @@ const sections = [
     checkSectionInView()
     headerBgTransition()
   }
-
-  document.addEventListener('astro:page-load', function () {
-    const menuButton = $('#menuButton')
-    const navContent = $('.menuContent')
-    const innerNavContent = $('#innerNavContent')
-    console.log(navContent)
-    menuButton?.addEventListener('hamburgerButtonClicked', () =>
-      toggleMenu(navContent, header, innerNavContent)
-    )
-    console.log('La página Astro está lista')
-  })
 </script>
